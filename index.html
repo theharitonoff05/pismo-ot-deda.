@@ -1,0 +1,681 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<meta name="description" content="Видеопоздравление, в котором Дед Мороз называет вашего ребёнка по имени. 300 ₽, готово в тот же день.">
+
+<!-- ПРЕВЬЮ ССЫЛКИ В TELEGRAM И СОЦСЕТЯХ.
+     После привязки домена замени две строки ниже на полные адреса:
+     og:url   -> https://твой-домен.ru/
+     og:image -> https://твой-домен.ru/ded.jpg -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Письмо от Деда Мороза">
+<meta property="og:title" content="Дед Мороз назовёт вашего ребёнка по имени">
+<meta property="og:description" content="Видеопоздравление, в котором Дед Мороз называет вашего ребёнка по имени. 300 ₽, готово в тот же день.">
+<meta property="og:url" content="./">
+<meta property="og:image" content="ded.jpg">
+<meta property="og:image:width" content="860">
+<meta property="og:image:height" content="1290">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23B02530' stroke-width='1.8' stroke-linecap='round'><path d='M12 2v20M3.3 7l17.4 10M3.3 17L20.7 7M12 6.5L9.4 4M12 6.5L14.6 4M12 17.5L9.4 20M12 17.5L14.6 20M7 9.6L4 8.9M7 9.6L6.3 6.6M17 14.4l3 .7M17 14.4l.7 3M7 14.4l-3 .7M7 14.4l-.7 3M17 9.6l3-.7M17 9.6l-.7-3'/></svg>">
+
+<style>
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+
+<title>Письмо от Деда Мороза</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+
+<style>
+/* Чистая светлая страница с большими отступами; всё праздничное живёт внутри одного тёмного блока наверху. */
+:root{
+  --bg:#FFFFFF;
+  --fg:#0D0D0D;
+  --fg-2:#5D5D5D;
+  --line:#E6E6E6;
+  --surface:#F8F5F2;
+  --flake:#AFC5DF;
+  --btn-bg:#0D0D0D;
+  --btn-fg:#FFFFFF;
+  --accent:#B02530;
+  /* тёмный блок героя одинаков в обеих темах */
+  --hero-bg:#0B0B0C;
+  --hero-fg:#F4F4F5;
+  --hero-fg-2:#A0A0A6;
+  --radius:20px;
+  --sans:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0D0D0D;
+    --fg:#ECECEC;
+    --fg-2:#9B9B9B;
+    --line:#2A2A2A;
+    --surface:#171717;
+    --flake:#D8E6F6;
+    --btn-bg:#FFFFFF;
+    --btn-fg:#0D0D0D;
+    --accent:#E4606B;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0D0D0D;
+  --fg:#ECECEC;
+  --fg-2:#9B9B9B;
+  --line:#2A2A2A;
+  --surface:#171717;
+  --flake:#D8E6F6;
+  --btn-bg:#FFFFFF;
+  --btn-fg:#0D0D0D;
+  --accent:#E4606B;
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--fg);
+  font-family:var(--sans);
+  font-size:17px;
+  line-height:1.6;
+  letter-spacing:-.011em;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+.wrap{
+  max-width:1020px;
+  margin:0 auto;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+}
+
+h1,h2,h3{letter-spacing:-.025em;text-wrap:balance;margin:0}
+h2{font-size:clamp(26px,3.4vw,34px);font-weight:600;line-height:1.2}
+h3{font-size:17px;font-weight:600;line-height:1.35}
+p{margin:0}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  background:var(--btn-bg);color:var(--btn-fg);
+  font-size:16px;font-weight:500;
+  text-decoration:none;
+  padding:13px 24px;
+  border-radius:999px;
+  border:1px solid transparent;
+  transition:opacity .15s ease;
+}
+.btn:hover{opacity:.85}
+.btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.btn-light{background:#fff;color:#0D0D0D}
+.btn-xmas{background:var(--accent);color:#fff;border-color:transparent}
+.btn-ghost{background:transparent;color:var(--hero-fg);border-color:rgba(255,255,255,.28)}
+
+/* ---------- hero ---------- */
+.hero-pad{padding-block:14px 10px}
+.hero{
+  position:relative;
+  overflow:hidden;
+  background:var(--hero-bg);
+  color:var(--hero-fg);
+  border-radius:28px;
+  padding:clamp(28px,4.4vw,56px);
+}
+#snow{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
+#snow-page{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:-1}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
+
+.hero h1{
+  font-size:clamp(32px,5.2vw,52px);
+  font-weight:600;
+  line-height:1.08;
+  max-width:16ch;
+}
+.hero .sub{
+  color:var(--hero-fg-2);
+  font-size:clamp(16px,1.9vw,19px);
+  margin-top:18px;
+  max-width:38ch;
+}
+.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:28px}
+.hero-meta{font-size:14px;color:var(--hero-fg-2);margin-top:18px}
+
+.hero-copy{position:relative;z-index:3}
+.ded{position:relative;z-index:1;justify-self:center;width:100%;max-width:360px}
+.ded img{
+  display:block;width:100%;height:auto;
+  mix-blend-mode:screen;
+  -webkit-mask-image:linear-gradient(to right,transparent 0,#000 17%,#000 83%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 9%,#000 91%,transparent 100%);
+  mask-image:linear-gradient(to right,transparent 0,#000 17%,#000 83%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 9%,#000 91%,transparent 100%);
+  -webkit-mask-composite:source-in;
+  mask-composite:intersect;
+  animation:rise 1.3s cubic-bezier(.2,.7,.3,1) both;
+}
+.ded::before{
+  content:"";position:absolute;left:50%;top:14%;transform:translateX(-50%);
+  width:74%;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,rgba(190,60,68,.26) 0%,rgba(190,60,68,0) 68%);
+  animation:breathe 9.5s ease-in-out infinite;
+}
+.glint{
+  position:absolute;left:50%;top:34.6%;width:17%;aspect-ratio:1;
+  transform:translate(-50%,-50%);border-radius:50%;
+  background:radial-gradient(circle,rgba(255,238,214,.9) 0%,rgba(255,186,160,.38) 32%,rgba(255,186,160,0) 70%);
+  mix-blend-mode:screen;pointer-events:none;opacity:0;
+  animation:glint 8s ease-in-out 2s infinite;
+}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes breathe{0%,100%{opacity:.5}50%{opacity:1}}
+@keyframes glint{
+  0%,58%{opacity:0;transform:translate(-50%,-50%) scale(.7)}
+  66%{opacity:.85;transform:translate(-50%,-50%) scale(1.06)}
+  73%{opacity:.2;transform:translate(-50%,-50%) scale(.98)}
+  80%{opacity:.6;transform:translate(-50%,-50%) scale(1.03)}
+  100%{opacity:0;transform:translate(-50%,-50%) scale(.75)}
+}
+
+/* ---------- секции ---------- */
+section{padding-block:clamp(44px,6vw,76px)}
+.section-head{max-width:62ch;margin-bottom:28px}
+.section-head p{color:var(--fg-2);margin-top:12px}
+.section-head h2::before{
+  content:"";display:inline-block;width:.6em;height:.6em;margin-right:.42em;
+  background:var(--accent);
+  -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round'><path d='M12 2v20M3.3 7l17.4 10M3.3 17L20.7 7M12 6.5L9.4 4M12 6.5L14.6 4M12 17.5L9.4 20M12 17.5L14.6 20M7 9.6L4 8.9M7 9.6L6.3 6.6M17 14.4l3 .7M17 14.4l.7 3M7 14.4l-3 .7M7 14.4l-.7 3M17 9.6l3-.7M17 9.6l-.7-3'/></svg>") center/contain no-repeat;
+  mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round'><path d='M12 2v20M3.3 7l17.4 10M3.3 17L20.7 7M12 6.5L9.4 4M12 6.5L14.6 4M12 17.5L9.4 20M12 17.5L14.6 20M7 9.6L4 8.9M7 9.6L6.3 6.6M17 14.4l3 .7M17 14.4l.7 3M7 14.4l-3 .7M7 14.4l-.7 3M17 9.6l3-.7M17 9.6l-.7-3'/></svg>") center/contain no-repeat;
+}
+
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{
+  background:var(--surface);
+  border-radius:var(--radius);
+  padding:26px 24px;
+  min-width:0;
+}
+.card .num{font-size:14px;color:var(--fg-2);margin-bottom:14px}
+.card p{color:var(--fg-2);font-size:16px;margin-top:8px}
+
+.rows{border-top:1px solid var(--line)}
+.row{
+  display:grid;grid-template-columns:200px 1fr;gap:8px 28px;
+  padding:18px 0;border-bottom:1px solid var(--line);
+}
+.row b{font-weight:500}
+.row span{color:var(--fg-2)}
+.after{color:var(--fg-2);font-size:15px;margin-top:20px;max-width:62ch}
+
+.price-box{
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:clamp(24px,3.4vw,40px);
+  display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;
+}
+.price-num{font-size:clamp(40px,6vw,52px);font-weight:600;letter-spacing:-.03em;line-height:1}
+.price-num small{font-size:.45em;font-weight:500;color:var(--fg-2);margin-left:6px}
+.price-list{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:7px;color:var(--fg-2);font-size:16px}
+
+.quotes{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.quote{background:var(--surface);border-radius:var(--radius);padding:26px 24px;min-width:0}
+.quote p{font-size:16px}
+.quote-head{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.ava{
+  width:42px;height:42px;flex:0 0 auto;border-radius:50%;
+  display:grid;place-items:center;
+  background:var(--accent);color:#fff;
+  font-size:17px;font-weight:600;letter-spacing:0;
+}
+.quote-head b{font-weight:600;font-size:16px;display:block}
+.quote-head span{font-size:13px;color:var(--fg-2)}
+.quotes-after{color:var(--fg-2);font-size:15px;margin-top:18px}
+
+.faq{border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{
+  cursor:pointer;list-style:none;padding:18px 0;
+  font-weight:500;display:flex;justify-content:space-between;gap:20px;align-items:center;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";width:9px;height:9px;border-right:1.6px solid var(--fg-2);border-bottom:1.6px solid var(--fg-2);transform:rotate(45deg) translateY(-2px);flex:0 0 auto;transition:transform .18s ease}
+.faq details[open] summary::after{transform:rotate(225deg) translateY(-2px)}
+.faq summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:6px}
+.faq .answer{padding:0 0 20px;color:var(--fg-2);font-size:16px;max-width:66ch}
+
+.closing{
+  background:var(--surface);
+  border-radius:var(--radius);
+  padding:clamp(28px,4vw,48px);
+  display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;
+}
+.closing h2{max-width:18ch}
+.closing p{color:var(--fg-2);margin-top:10px}
+
+dialog{
+  border:none;padding:0;color:var(--fg);background:var(--bg);
+  border-radius:var(--radius);
+  max-width:660px;width:calc(100% - 32px);
+  max-height:86vh;overflow:auto;
+}
+dialog::backdrop{background:rgba(0,0,0,.55)}
+.policy{padding:clamp(22px,3vw,32px)}
+.policy h3{font-size:20px;margin-bottom:4px;line-height:1.25}
+.policy h4{font-size:15px;font-weight:600;margin:22px 0 6px}
+.policy p{color:var(--fg-2);font-size:14.5px;line-height:1.55;margin-bottom:8px}
+.policy ul{color:var(--fg-2);font-size:14.5px;line-height:1.55;margin:6px 0 8px;padding-left:20px}
+.policy li{margin-bottom:5px}
+.policy .meta{font-size:13px;margin-bottom:18px}
+.policy .req{font-size:14.5px;color:var(--fg);line-height:1.6;margin-top:6px}
+.policy .close{margin-top:26px}
+
+footer{padding-block:34px 48px;border-top:1px solid var(--line);color:var(--fg-2);font-size:14px}
+footer a{color:var(--fg);text-decoration:none;font-weight:500}
+footer a:hover{text-decoration:underline}
+.fine{margin-top:12px;max-width:62ch}
+
+@media (max-width:860px){
+  .cards{grid-template-columns:1fr}
+  .quotes{grid-template-columns:1fr}
+  .row{grid-template-columns:1fr;gap:4px}
+  .price-box{grid-template-columns:1fr;gap:22px}
+}
+@media (max-width:720px){
+  .hero-grid{grid-template-columns:1fr;gap:10px}
+  .ded{order:-1;max-width:260px}
+  .hero{border-radius:22px}
+  .hero h1{max-width:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+
+<canvas id="snow-page" aria-hidden="true"></canvas>
+
+<div class="wrap hero-pad">
+  <header class="hero">
+    <canvas id="snow" aria-hidden="true"></canvas>
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <h1>Дед Мороз назовёт вашего ребёнка по имени</h1>
+        <p class="sub">Вы присылаете имя и пару деталей — ребёнок смотрит видео, где Дед Мороз говорит именно про него.</p>
+        <div class="hero-actions">
+          <a class="btn btn-light" href="https://t.me/pismo_ot_deda">Заказать в Telegram</a>
+          <a class="btn btn-ghost" href="#how">Как это работает</a>
+        </div>
+        <p class="hero-meta">300 ₽ · готово в тот же день · одна бесплатная переделка</p>
+      </div>
+      <div class="ded">
+        <img src="ded.jpg" alt="Дед Мороз в красной шубе держит письмо с сургучной печатью">
+        <span class="glint" aria-hidden="true"></span>
+      </div>
+    </div>
+  </header>
+</div>
+
+<main>
+
+  <section id="how" class="wrap">
+    <div class="section-head">
+      <h2>Как это работает</h2>
+      <p>Три шага и несколько часов ожидания.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="num">Шаг 1</div>
+        <h3>Пишете в Telegram</h3>
+        <p>Имя ребёнка, возраст и пара деталей: чем занимается, за что похвалить, что просит на Новый год.</p>
+      </div>
+      <div class="card">
+        <div class="num">Шаг 2</div>
+        <h3>Я собираю письмо</h3>
+        <p>Дед Мороз обращается к ребёнку по имени и говорит именно про него, а не общими словами.</p>
+      </div>
+      <div class="card">
+        <div class="num">Шаг 3</div>
+        <h3>Получаете ссылку</h3>
+        <p>Открывается с любого телефона, можно включить с телевизора. Telegram ребёнку не нужен.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="section-head">
+      <h2>Что прислать</h2>
+      <p>Чем конкретнее детали, тем сильнее реакция.</p>
+    </div>
+    <div class="rows">
+      <div class="row"><b>Имя</b><span>Так, как его зовут дома. Лиза, а не Елизавета.</span></div>
+      <div class="row"><b>Возраст</b><span>От него зависит, как Дед Мороз будет говорить.</span></div>
+      <div class="row"><b>Два-три факта</b><span>Ходит на хоккей, завела хомяка, сама заплетает косу.</span></div>
+      <div class="row"><b>За что похвалить</b><span>То, чем ребёнок гордится.</span></div>
+      <div class="row"><b>Подарок</b><span>Если хотите, чтобы Дед Мороз намекнул, что приготовил.</span></div>
+    </div>
+    <p class="after">«Любит динозавров» работает. «Хороший ребёнок» — нет.</p>
+  </section>
+
+  <section class="wrap">
+    <div class="section-head"><h2>Сколько стоит</h2></div>
+    <div class="price-box">
+      <div>
+        <div class="price-num">300<small>₽</small></div>
+        <ul class="price-list">
+          <li>Одно видео для одного ребёнка</li>
+          <li>Готово в тот же день</li>
+          <li>Одна бесплатная переделка, если что-то не так</li>
+          <li>Двое детей — два отдельных письма, каждому своё имя</li>
+        </ul>
+      </div>
+      <a class="btn btn-xmas" href="https://t.me/pismo_ot_deda">Заказать</a>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="section-head"><h2>Отзывы</h2></div>
+
+    <!--
+      Новый отзыв — добавь ещё один блок:
+      <blockquote class="quote"><p>Текст слово в слово.</p><span class="who">Имя, город</span></blockquote>
+    -->
+
+    <div class="quotes">
+      <blockquote class="quote">
+        <div class="quote-head">
+          <div class="ava" aria-hidden="true">Н</div>
+          <div><b>Наталья</b><span>Заказывала поздравление для дочки</span></div>
+        </div>
+        <p>Обращались для составления поздравления для дочки. Поздравление получилось замечательное! Получилось точь в точь, прям очень реалистично. И смонтировано оперативно. Большое спасибо!</p>
+      </blockquote>
+      <blockquote class="quote">
+        <div class="quote-head">
+          <div class="ava" aria-hidden="true">О</div>
+          <div><b>Ольга</b><span>Заказчица</span></div>
+        </div>
+        <p>Всё хорошо, а главное быстро и качественно, человек выслушал и накидал варианты, получилось даже лучше чем ожидал. РЕКОМЕНДУЮ 👍</p>
+      </blockquote>
+    </div>
+    <p class="quotes-after">Добавляю сюда отзывы по мере того, как заказчики их присылают.</p>
+  </section>
+
+  <section class="wrap">
+    <div class="section-head"><h2>Вопросы</h2></div>
+    <div class="faq">
+      <details>
+        <summary>Нужен ли ребёнку Telegram?</summary>
+        <div class="answer">Нет. Видео приходит обычной ссылкой, она открывается в любом браузере и с телевизора.</div>
+      </details>
+      <details>
+        <summary>Сколько ждать?</summary>
+        <div class="answer">Обычно несколько часов, в декабре — до суток. Если нужно срочно, напишите, постараюсь сделать быстрее.</div>
+      </details>
+      <details>
+        <summary>А если не понравится?</summary>
+        <div class="answer">Переделаю один раз бесплатно. Если и после этого не то — верну деньги.</div>
+      </details>
+      <details>
+        <summary>Можно для двоих детей?</summary>
+        <div class="answer">Да, но это два отдельных видео: в каждом звучит своё имя и свои детали.</div>
+      </details>
+      <details>
+        <summary>Можно взрослому?</summary>
+        <div class="answer">Можно. Коллеге, родителям, другу — только скажите, на «ты» или на «вы».</div>
+      </details>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-top:0">
+    <div class="closing">
+      <div>
+        <h2>Напишите имя — пришлю письмо</h2>
+        <p>Отвечаю сам, обычно в течение часа.</p>
+      </div>
+      <a class="btn btn-xmas" href="https://t.me/pismo_ot_deda">Заказать в Telegram</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <p><a href="https://t.me/pismo_ot_deda">@pismo_ot_deda</a></p>
+  <p class="fine">Частный проект. Не связан с официальной почтой Деда Мороза и другими государственными сервисами.</p>
+  <p class="fine"><a href="#" id="privacy-open">Политика конфиденциальности</a></p>
+</footer>
+
+<dialog id="privacy">
+  <div class="policy">
+    <h3>Политика в отношении обработки персональных данных</h3>
+    <p class="meta">Редакция от 13 ноября 2026 г.</p>
+
+    <h4>1. Общие положения</h4>
+    <p>1.1. Настоящая Политика определяет порядок обработки и защиты персональных данных физических лиц (далее — Пользователи, Субъекты), обращающихся к налогоплательщику налога на профессиональный доход Харитонову Максиму Андреевичу, ИНН 503302996556 (далее — Оператор), по вопросам оказания услуг по изготовлению персонализированных видеопоздравлений.</p>
+    <p>1.2. Политика разработана в соответствии с Федеральным законом от 27.07.2006 № 152-ФЗ «О персональных данных».</p>
+    <p>1.3. Политика применяется ко всем сведениям, получаемым Оператором от Пользователя через мессенджер Telegram (аккаунт @pismo_ot_deda) и иные каналы связи, указанные на сайте.</p>
+    <p>1.4. Направляя Оператору заказ и сведения, необходимые для его исполнения, Пользователь выражает согласие с условиями настоящей Политики.</p>
+
+    <h4>2. Состав обрабатываемых персональных данных</h4>
+    <p>2.1. Оператор обрабатывает:</p>
+    <ul>
+      <li>имя (в том числе уменьшительное) и возраст ребёнка, для которого изготавливается поздравление;</li>
+      <li>сведения об интересах, занятиях и достижениях ребёнка, сообщённые Пользователем для сценария;</li>
+      <li>имя пользователя (username), идентификатор и (или) номер телефона Пользователя в Telegram;</li>
+      <li>сведения о факте, сумме и дате оплаты.</li>
+    </ul>
+    <p>2.2. Оператор не обрабатывает специальные и биометрические категории персональных данных (ст. 10, 11 № 152-ФЗ). Направление таких сведений не требуется; при поступлении они подлежат уничтожению.</p>
+    <p>2.3. Пользователь не обязан сообщать фамилию, адрес, реквизиты документов, удостоверяющих личность, и иные сведения, не перечисленные в п. 2.1.</p>
+
+    <h4>3. Цели обработки</h4>
+    <p>3.1. Изготовление видеопоздравления и передача его Пользователю.</p>
+    <p>3.2. Связь с Пользователем по вопросам заказа, включая уточнения и доработку результата.</p>
+    <p>3.3. Исполнение обязанностей, возложенных на Оператора законодательством о налогах и сборах.</p>
+
+    <h4>4. Правовые основания обработки</h4>
+    <p>4.1. Согласие субъекта персональных данных — п. 1 ч. 1 ст. 6 № 152-ФЗ.</p>
+    <p>4.2. Исполнение договора, стороной которого является субъект персональных данных, — п. 5 ч. 1 ст. 6 № 152-ФЗ.</p>
+    <p>4.3. Федеральный закон от 27.11.2018 № 422-ФЗ — в части формирования чеков и налогового учёта.</p>
+
+    <h4>5. Обработка данных несовершеннолетних</h4>
+    <p>5.1. Сведения о ребёнке предоставляются Оператору родителем или иным законным представителем.</p>
+    <p>5.2. Направляя такие сведения, Пользователь подтверждает, что является законным представителем ребёнка либо действует с его согласия, и даёт согласие на обработку данных ребёнка в целях, указанных в разделе 3.</p>
+    <p>5.3. Оператор не собирает персональные данные непосредственно у несовершеннолетних.</p>
+
+    <h4>6. Порядок и условия обработки</h4>
+    <p>6.1. Обработка осуществляется смешанным способом и включает сбор, запись, хранение, уточнение, использование, передачу результата Пользователю, удаление и уничтожение данных.</p>
+    <p>6.2. Передача персональных данных третьим лицам не осуществляется, за исключением случаев, прямо предусмотренных законодательством Российской Федерации. Персональные данные не продаются и не используются в рекламных целях.</p>
+    <p>6.3. Пользователь уведомлён, что избранный им канал связи (мессенджер Telegram) функционирует на инфраструктуре его владельца; условия обработки данных внутри мессенджера определяются его владельцем и находятся вне контроля Оператора.</p>
+    <p>6.4. Самостоятельная трансграничная передача персональных данных Оператором не осуществляется.</p>
+
+    <h4>7. Сроки хранения и уничтожение</h4>
+    <p>7.1. Сведения, указанные в п. 2.1, хранятся не более 60 календарных дней с даты передачи результата Пользователю и по истечении этого срока подлежат удалению.</p>
+    <p>7.2. Готовый видеоматериал размещается по персональной ссылке и доступен Пользователю в течение 12 месяцев с даты передачи, если иное не согласовано сторонами. По требованию Пользователя доступ прекращается досрочно.</p>
+    <p>7.3. Сведения, необходимые для исполнения налоговых обязанностей, хранятся в сроки, установленные законодательством Российской Федерации.</p>
+    <p>7.4. Обработка прекращается при достижении целей обработки, отзыве согласия либо по требованию субъекта персональных данных.</p>
+
+    <h4>8. Права субъекта персональных данных</h4>
+    <p>8.1. В соответствии со ст. 14 № 152-ФЗ Субъект вправе получать сведения об обработке его данных, требовать их уточнения, блокирования или уничтожения, отозвать согласие, а также обжаловать действия Оператора в Роскомнадзор или в судебном порядке.</p>
+    <p>8.2. Требование или отзыв согласия направляются в свободной форме на аккаунт @pismo_ot_deda. Обработка прекращается, а данные уничтожаются в срок, не превышающий 30 дней с даты поступления требования (ч. 5 ст. 21 № 152-ФЗ); Оператор исполняет такое требование в течение 3 рабочих дней.</p>
+    <p>8.3. Отзыв согласия до передачи результата влечёт невозможность оказания услуги.</p>
+
+    <h4>9. Меры защиты</h4>
+    <p>9.1. Оператор принимает правовые, организационные и технические меры, предусмотренные ст. 18.1 и 19 № 152-ФЗ: ограничение круга лиц, имеющих доступ к данным, использование устройств с парольной защитой, своевременное удаление данных по истечении сроков хранения.</p>
+    <p>9.2. Доступ к персональным данным имеет только Оператор.</p>
+
+    <h4>10. Сведения о сайте</h4>
+    <p>10.1. Сайт не использует системы веб-аналитики, не применяет файлы cookie в целях отслеживания и не собирает сведения о посетителях автоматически.</p>
+    <p>10.2. Формы сбора персональных данных на сайте отсутствуют; заказ оформляется в мессенджере.</p>
+
+    <h4>11. Изменение Политики</h4>
+    <p>11.1. Оператор вправе вносить изменения в настоящую Политику. Действующая редакция размещается на сайте.</p>
+
+    <h4>12. Реквизиты Оператора</h4>
+    <p class="req">Харитонов Максим Андреевич<br>Налогоплательщик налога на профессиональный доход (самозанятый)<br>ИНН 503302996556<br>Связь: Telegram @pismo_ot_deda</p>
+
+    <button class="btn close" id="privacy-close" type="button">Закрыть</button>
+  </div>
+</dialog>
+
+<script>
+function snowLayer(id, opt) {
+  var canvas = document.getElementById(id);
+  if (!canvas || !canvas.getContext) return;
+  var ctx = canvas.getContext('2d');
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var w = 0, h = 0, dpr = 1, raf = null, sprites = [], flakes = [];
+  var SIZES = opt.sizes;
+
+  function crystal(px) {
+    var c = document.createElement('canvas');
+    var pad = 2;
+    c.width = c.height = Math.ceil((px + pad * 2) * dpr);
+    var g = c.getContext('2d');
+    g.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var cx = (px + pad * 2) / 2, r = px / 2;
+    g.strokeStyle = opt.color;
+    g.lineCap = 'round';
+    g.lineWidth = Math.max(1, px / 16);
+    for (var i = 0; i < 6; i++) {
+      var a = (Math.PI / 3) * i;
+      g.beginPath();
+      g.moveTo(cx, cx);
+      g.lineTo(cx + Math.cos(a) * r, cx + Math.sin(a) * r);
+      g.stroke();
+      [[0.45, 0.26], [0.72, 0.19]].forEach(function (p) {
+        var bx = cx + Math.cos(a) * r * p[0];
+        var by = cx + Math.sin(a) * r * p[0];
+        var l = r * p[1];
+        g.beginPath();
+        g.moveTo(bx, by);
+        g.lineTo(bx + Math.cos(a - 0.9) * l, by + Math.sin(a - 0.9) * l);
+        g.moveTo(bx, by);
+        g.lineTo(bx + Math.cos(a + 0.9) * l, by + Math.sin(a + 0.9) * l);
+        g.stroke();
+      });
+    }
+    g.beginPath();
+    g.arc(cx, cx, Math.max(1, px / 18), 0, Math.PI * 2);
+    g.fillStyle = opt.color;
+    g.fill();
+    return c;
+  }
+
+  function size() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    w = canvas.clientWidth; h = canvas.clientHeight;
+    if (!w || !h) return false;
+    canvas.width = Math.round(w * dpr);
+    canvas.height = Math.round(h * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    sprites = SIZES.map(crystal);
+    return true;
+  }
+
+  function build() {
+    var count = Math.round(Math.min(opt.max, Math.max(opt.min, w / opt.per)));
+    flakes = [];
+    for (var i = 0; i < count; i++) {
+      var k = i % 3 === 0 ? 2 : (i % 2 === 0 ? 1 : 0);
+      flakes.push({
+        k: k,
+        x: Math.random() * w,
+        y: Math.random() * h,
+        s: 0.2 + k * 0.15 + Math.random() * 0.2,
+        rot: Math.random() * Math.PI * 2,
+        spin: (Math.random() - 0.5) * 0.004,
+        sway: 14 + Math.random() * 22,
+        phase: Math.random() * Math.PI * 2,
+        o: opt.alpha[0] + Math.random() * opt.alpha[1]
+      });
+    }
+  }
+
+  function draw(t) {
+    ctx.clearRect(0, 0, w, h);
+    for (var i = 0; i < flakes.length; i++) {
+      var f = flakes[i];
+      var px = SIZES[f.k] + 4;
+      ctx.save();
+      ctx.globalAlpha = f.o;
+      ctx.translate(f.x + Math.sin(t / 2600 + f.phase) * f.sway, f.y);
+      ctx.rotate(f.rot);
+      ctx.drawImage(sprites[f.k], -px / 2, -px / 2, px, px);
+      ctx.restore();
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  function step(t) {
+    for (var i = 0; i < flakes.length; i++) {
+      var f = flakes[i];
+      f.y += f.s;
+      f.rot += f.spin;
+      if (f.y - SIZES[2] > h) { f.y = -SIZES[2]; f.x = Math.random() * w; }
+    }
+    draw(t);
+    raf = requestAnimationFrame(step);
+  }
+
+  function start() {
+    if (!size()) return;
+    build();
+    if (raf) cancelAnimationFrame(raf);
+    if (reduced) { draw(0); return; }
+    raf = requestAnimationFrame(step);
+  }
+
+  var timer = null;
+  window.addEventListener('resize', function () {
+    clearTimeout(timer);
+    timer = setTimeout(start, 180);
+  });
+
+  var img = document.querySelector('.ded img');
+  if (img && !img.complete) img.addEventListener('load', function () { setTimeout(start, 80); });
+
+  start();
+}
+
+function flakeColor() {
+  try {
+    var c = getComputedStyle(document.documentElement).getPropertyValue('--flake').trim();
+    return c || '#AFC5DF';
+  } catch (e) { return '#AFC5DF'; }
+}
+
+snowLayer('snow', { sizes: [14, 24, 36], min: 12, max: 34, per: 34, color: '#EAF3FF', alpha: [0.22, 0.3] });
+snowLayer('snow-page', { sizes: [13, 22, 32], min: 9, max: 24, per: 58, color: flakeColor(), alpha: [0.3, 0.38] });
+
+(function () {
+  var box = document.getElementById('privacy');
+  var openLink = document.getElementById('privacy-open');
+  var closeBtn = document.getElementById('privacy-close');
+  if (!box) return;
+  if (openLink) {
+    openLink.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (box.showModal) { box.showModal(); } else { box.setAttribute('open', ''); }
+    });
+  }
+  if (closeBtn) {
+    closeBtn.addEventListener('click', function () {
+      if (box.close) { box.close(); } else { box.removeAttribute('open'); }
+    });
+  }
+  box.addEventListener('click', function (e) {
+    if (e.target === box && box.close) box.close();
+  });
+})();
+</script>
+
+</body>
+</html>
